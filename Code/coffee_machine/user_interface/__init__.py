@@ -1,0 +1,3 @@
+'''
+SR: manage user interactions
+'''

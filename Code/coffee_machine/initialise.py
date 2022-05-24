@@ -22,5 +22,12 @@ latte["Beans"] = 10
 latte["Milk"] = 50
 latte["Cost"] = 3.75
 
-coffee_types = [americano,espresso,latte]
-coffee_names = [drink["Name"] for drink in coffee_types]
+americano_obj = Drink("Americano",100,20,0,350)
+espresso_obj = Drink("Espresso",20,20,0,300)
+latte_obj = Drink("Latte",50,10,50,375)
+
+#coffee_types = (americano,espresso,latte)
+#coffee_names = [drink["Name"] for drink in coffee_types]
+
+coffee_types = (americano_obj,espresso_obj,latte_obj)
+coffee_names = [drink.name for drink in coffee_types]

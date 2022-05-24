@@ -13,18 +13,18 @@ def getIntResponse(min, max = None):
     return int(response)
 
 def get_int_selection(prompt, options):
-    sendMessage(make_selection(prompt, options))
+    sendContinuationMessage(make_selection(prompt, options))
     return getIntResponse(0, len(options)) - 1
 
 def show_choice(msg):
     sendMessage(f"You chose {msg}")
     
 def request_cash(name, amount):
-    sendMessage(f"Please insert money for {name} {showRange(amount)}: ", end='')
+    sendContinuationMessage(f"Please insert money for {name} {showRange(amount)}: ")
     return getIntResponse(amount)
 
 def request_refill(name, minRequired, space):
-    sendMessage(f"Please refill {name} {showRange(minRequired,space)}: ", end='')
+    sendContinuationMessage(f"Please refill {name} {showRange(minRequired,space)}: ")
     return getIntResponse(minRequired, space)
 
 def give_coffee(coffee):
