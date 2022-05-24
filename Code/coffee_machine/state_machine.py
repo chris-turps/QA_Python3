@@ -1,5 +1,5 @@
 '''
-SR: to manage state
+SR: to switch between states
 '''
 from user_interface.user_interface import *
 from operations import *

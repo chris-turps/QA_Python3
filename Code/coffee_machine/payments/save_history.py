@@ -9,7 +9,10 @@ def saveTransaction(transaction):
 
 def printHistory():
     db = shelve.open('payment_history.log')
-    for transaction in db['transactions']:
-        print(transaction)
-        print("")
+    if 'transaction' in db.keys():
+        for transaction in db['transactions']:
+            print(transaction)
+            print("")
     db.close()
+
+    

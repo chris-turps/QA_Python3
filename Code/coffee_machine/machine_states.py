@@ -7,3 +7,5 @@ class CM_state(Enum):
     GIVE_CHANGE = auto()
     CREATE_TRANSACTION = auto()
     QUIT = auto()
+
+    
