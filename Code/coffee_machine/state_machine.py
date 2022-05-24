@@ -17,6 +17,7 @@ def state_machine(current_state):
                 current_state = CM_state.QUIT
             else:
                 show_choice(coffee_names[choice])
+                sendMessage("")
         case QUIT:
             sendMessage("Bye...")
             current_state = CM_state.OFF
