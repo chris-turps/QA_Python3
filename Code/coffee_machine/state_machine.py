@@ -15,7 +15,10 @@ def state_machine(current_state):
             current_state = takePayment()
         case CM_state.GIVE_CHANGE:
             current_state = giveChange()
+        case CM_state.CREATE_TRANSACTION:
+            current_state = createTransaction()
         case CM_state.QUIT:
+            showTransactions()
             sendMessage("Bye...")
             current_state = CM_state.OFF
     return current_state

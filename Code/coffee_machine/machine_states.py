@@ -5,4 +5,5 @@ class CM_state(Enum):
     GET_COFFEE_SELECTION = auto()
     TAKE_PAYMENT = auto()
     GIVE_CHANGE = auto()
+    CREATE_TRANSACTION = auto()
     QUIT = auto()

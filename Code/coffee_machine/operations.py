@@ -1,30 +1,41 @@
 from machine_states import *
 from user_interface.user_interface import *
 from initialise import coffee_types, coffee_names
+from payments import transaction, payment_history
 
 coffeeChoice = 0
 amount_paid = 0
 change = 0
 
 def chooseCoffee():
-    global coffeeChoice
-    coffeeChoice = get_int_selection("Coffee", coffee_names)
+    sendMessage("")        
+    global coffeeChoice    
+    coffeeChoice = get_int_selection("Drink", coffee_names)
     if coffeeChoice == -1:
         return CM_state.QUIT
     else:
         show_choice(coffee_names[coffeeChoice])
-        sendMessage("")
         return CM_state.TAKE_PAYMENT
 
 def takePayment():
-    amount_paid = request_cash(coffee_names[coffeeChoice],coffee_types[coffeeChoice]["Cost"])
+    global amount_paid
+    amount_paid = request_cash(coffee_names[coffeeChoice],coffee_types[coffeeChoice].cost)
     global change
-    change = amount_paid - coffee_types[coffeeChoice]["Cost"]
+    change = amount_paid - coffee_types[coffeeChoice].cost
     if change > 0:
         return CM_state.GIVE_CHANGE
     else:
-        return CM_state.GET_COFFEE_SELECTION
+        return CM_state.CREATE_TRANSACTION
 
 def giveChange():
     take_change(change)
+    return CM_state.CREATE_TRANSACTION
+
+def createTransaction():
+    newTransaction = transaction.Transaction(coffee_names[coffeeChoice],coffee_types[coffeeChoice].cost,amount_paid)
+    payment_history.payments.append(newTransaction)
     return CM_state.GET_COFFEE_SELECTION
+
+def showTransactions():
+    for transaction in payment_history.payments:
+        sendMessage(transaction)
