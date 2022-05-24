@@ -1,7 +1,7 @@
 from machine_states import *
 from user_interface.user_interface import *
 from initialise import coffee_types, coffee_names
-from payments import transaction, payment_history
+from payments import transaction, payment_history, save_history
 
 coffeeChoice = 0
 amount_paid = 0
@@ -33,9 +33,12 @@ def giveChange():
 
 def createTransaction():
     newTransaction = transaction.Transaction(coffee_names[coffeeChoice],coffee_types[coffeeChoice].cost,amount_paid)
-    payment_history.payments.append(newTransaction)
+    save_history.saveTransaction(newTransaction)
+    #payment_history.payments.append(newTransaction)
     return CM_state.GET_COFFEE_SELECTION
 
 def showTransactions():
-    for transaction in payment_history.payments:
-        sendMessage(transaction)
+    #for transaction in payment_history.payments:
+        #sendMessage(transaction)
+    save_history.printHistory()
+    
