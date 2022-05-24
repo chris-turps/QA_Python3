@@ -1,3 +1,6 @@
+'''
+SR: to manage state
+'''
 from user_interface.user_interface import *
 from initialise import coffee_types, coffee_names
 from enum import Enum, auto

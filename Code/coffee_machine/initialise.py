@@ -22,5 +22,5 @@ latte["Beans"] = 10
 latte["Milk"] = 50
 latte["Cost"] = 3.75
 
-coffee_types = [americano,espresso,latte]
+coffee_types = (americano,espresso,latte)
 coffee_names = [drink["Name"] for drink in coffee_types]

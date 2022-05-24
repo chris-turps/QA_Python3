@@ -1,3 +1,6 @@
+'''
+SR: to run the machine
+'''
 from initialise import *
 from state_machine import *
 
