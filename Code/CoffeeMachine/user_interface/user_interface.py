@@ -1,10 +1,5 @@
-
-def showRange(min, max = None):
-    if max is None:
-        rangeStr = f'(at least {str(min)})'
-    else:
-        rangeStr = f'({str(min)} - {str(max)})'
-    return rangeStr
+from .synthesise_message import *
+from .user_io import *
 
 def getIntResponse(min, max = None):
     while(True):
@@ -17,12 +12,9 @@ def getIntResponse(min, max = None):
             sendMessage(showRange(min,max))
     return int(response)
 
-def make_selection(prompt, options):
-    sendMessage(f"Please select {prompt}")
-    for i, name in enumerate(options, start=1):
-        sendMessage(f"{i} {name}")
-    sendContinuationMessage(f"{showRange(1,i)} or 0 to quit: ")
-    return getIntResponse(0, i) - 1
+def get_int_selection(prompt, options):
+    sendMessage(make_selection(prompt, options))
+    return getIntResponse(0, len(options)) - 1
 
 def show_choice(msg):
     sendMessage(f"You chose {msg}")
@@ -41,9 +33,3 @@ def give_coffee(coffee):
 def take_change(change):
     sendMessage(f"Please take your change: {change}")
     return True
-
-def sendMessage(msg):
-    print(msg)
-
-def sendContinuationMessage(msg):
-    print(msg, end = "")

@@ -1,4 +1,4 @@
-from user_interface.UserInterface import *
+from user_interface.user_interface import *
 from initialise import coffee_types, coffee_names
 from enum import Enum, auto
 
@@ -12,7 +12,7 @@ cm_state = CM_state.GET_COFFEE_SELECTION
 def state_machine(current_state):
     match current_state:
         case CM_state.GET_COFFEE_SELECTION:
-            choice = make_selection("Coffee", coffee_names)
+            choice = get_int_selection("Coffee", coffee_names)
             if choice == -1:
                 current_state = CM_state.QUIT
             else:
