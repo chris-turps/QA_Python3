@@ -20,11 +20,11 @@ def show_choice(msg):
     sendMessage(f"You chose {msg}")
     
 def request_cash(name, amount):
-    sendMessage(f"Please insert money for {name} {showRange(amount)}: ", end='')
+    sendContinuationMessage(f"Please insert money for {name} {showRange(amount)}: ")
     return getIntResponse(amount)
 
 def request_refill(name, minRequired, space):
-    sendMessage(f"Please refill {name} {showRange(minRequired,space)}: ", end='')
+    sendContinuationMessage(f"Please refill {name} {showRange(minRequired,space)}: ")
     return getIntResponse(minRequired, space)
 
 def give_coffee(coffee):
