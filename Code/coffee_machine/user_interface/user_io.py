@@ -1,6 +1,7 @@
 '''
 SR: to send and receive IO
 '''
+
 def sendMessage(msg):
     print(msg)
 
