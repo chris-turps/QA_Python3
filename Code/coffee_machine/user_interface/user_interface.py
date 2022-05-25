@@ -1,16 +1,18 @@
 from .synthesise_message import *
 from .user_io import *
 
-def getIntResponse(min, max = None):
+def getIntResponse(min, max = None, testResponse = None):
     while(True):
-        response = input()
-        isOK = response.isnumeric() and int(response) >= min
-        if isOK and max is not None:
-            isOK = int(response) <= max
+        if testResponse == None:
+            response = getInt("")
+        else: response = testResponse
+        isOK = response >= min
+        if response >= min and max is not None:
+            isOK = response <= max
         if isOK: break
         else:
             sendMessage(showRange(min,max))
-    return int(response)
+    return response
 
 def get_int_selection(prompt, options):
     sendContinuationMessage(make_selection(prompt, options))

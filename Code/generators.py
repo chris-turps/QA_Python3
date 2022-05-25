@@ -38,7 +38,7 @@ for folder in get_dir(pattern):
     print("lazy: ", folder)
 
 for folder in get_dir_compr(pattern):
-    print("lazy comprehention: ", folder)
+    print("lazy comprehension: ", folder)
 
 result_list = list(get_dir_compr(pattern))
 print("\nresult_list: ", result_list)
@@ -54,15 +54,3 @@ newVal = next(myDirPatternGen)
 print("\nresult 3: ", newVal)
 newVal = next(myDirPatternGen)
 print("\nresult 4: ", newVal) 
-
-'''
-import copy
-fruit = ["apple","pear",["orange","melon"]]
-lunch = copy.deepcopy(fruit)
-print(fruit)
-print(lunch)
-lunch[0] = "grape"
-lunch[2][0] = "egg"
-print("Fruit:", fruit)
-print("Lunch:",lunch)
-'''
