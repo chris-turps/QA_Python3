@@ -1,9 +1,8 @@
 def showRange(min, max = None):
     if max is None:
-        rangeStr = f'(at least {str(min)})'
+        return f'(at least {str(min)})'
     else:
-        rangeStr = f'({str(min)} - {str(max)})'
-    return rangeStr
+        return f'({str(min)} - {str(max)})'
 
 def make_selection(prompt, options):
     msg = f"Please select {prompt}\n"

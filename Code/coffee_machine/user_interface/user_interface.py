@@ -1,11 +1,9 @@
 from .synthesise_message import *
 from .user_io import *
 
-def getIntResponse(min, max = None, testResponse = None):
+def getIntResponse(min, max = None):
     while(True):
-        if testResponse == None:
-            response = getInt("")
-        else: response = testResponse
+        response = getInt("")
         isOK = response >= min
         if response >= min and max is not None:
             isOK = response <= max

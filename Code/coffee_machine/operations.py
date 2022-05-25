@@ -7,19 +7,21 @@ coffeeChoice = 0
 amount_paid = 0
 change = 0
 
-def chooseCoffee():
+def chooseCoffee(test = None):
     sendMessage("")        
-    global coffeeChoice    
-    coffeeChoice = get_int_selection("Drink", coffee_names)
+    global coffeeChoice
+    if test != None: coffeeChoice = test   
+    else: coffeeChoice = get_int_selection("Drink", coffee_names)
     if coffeeChoice == -1:
         return CM_state.QUIT
     else:
         show_choice(coffee_names[coffeeChoice])
         return CM_state.TAKE_PAYMENT
 
-def takePayment():
+def takePayment(test = None):
     global amount_paid
-    amount_paid = request_cash(coffee_names[coffeeChoice],coffee_types[coffeeChoice].cost)
+    if test != None: amount_paid = test   
+    else: amount_paid = request_cash(coffee_names[coffeeChoice],coffee_types[coffeeChoice].cost)
     global change
     change = amount_paid - coffee_types[coffeeChoice].cost
     if change > 0:
