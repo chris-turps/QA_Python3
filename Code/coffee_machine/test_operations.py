@@ -4,8 +4,9 @@ import pytest
 
 @pytest.fixture()
 def costOfEspresso(monkeypatch):
-    monkeypatch.setattr(operations, "coffeeChoice", 1)
-    return coffee_types[1].cost
+    espressoIndex = coffee_names.index("Espresso")
+    monkeypatch.setattr(operations, "coffeeChoice", espressoIndex)
+    return coffee_types[espressoIndex].cost
 
 class Test_takePayment():
     def test_exactSum(s, costOfEspresso):
