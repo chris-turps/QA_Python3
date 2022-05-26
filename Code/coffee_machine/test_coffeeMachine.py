@@ -6,4 +6,5 @@
 import pytest
 import sys, pathlib
 #result = pytest.main(sys.argv) # just this file
-result = pytest.main(pathlib.Path(sys.argv[0]).parent) # script directory
+result = pytest.main(pathlib.Path(sys.argv[0]).parent)
+# will search script folder for all test scripts
