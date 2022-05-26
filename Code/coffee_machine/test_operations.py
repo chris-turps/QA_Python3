@@ -15,3 +15,5 @@ class Test_takePayment():
     def test_overPay(s, costOfEspresso):
         assert takePayment(costOfEspresso + 10) == CM_state.GIVE_CHANGE
 
+    def test_zeroPay(s, costOfEspresso):
+        assert takePayment(0) == CM_state.GET_COFFEE_SELECTION

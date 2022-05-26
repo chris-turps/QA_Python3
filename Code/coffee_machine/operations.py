@@ -24,7 +24,9 @@ def takePayment(test = None):
     else: amount_paid = request_cash(coffee_names[coffeeChoice],coffee_types[coffeeChoice].cost)
     global change
     change = amount_paid - coffee_types[coffeeChoice].cost
-    if change > 0:
+    if amount_paid <= 0:
+        return CM_state.GET_COFFEE_SELECTION
+    elif change > 0:
         return CM_state.GIVE_CHANGE
     else:
         return CM_state.CREATE_TRANSACTION

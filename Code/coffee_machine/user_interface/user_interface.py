@@ -4,7 +4,7 @@ from .user_io import *
 def getIntResponse(min, max = None):
     while(True):
         response = getInt("")
-        isOK = response >= min
+        isOK = response == 0 or response >= min
         if response >= min and max is not None:
             isOK = response <= max
         if isOK: break
